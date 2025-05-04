@@ -26,10 +26,11 @@ public abstract class Pet {
 		this.adopted = adopted;
 	}
 	
-	public abstract String getspecies();
+
+	public abstract String getType();
 
 	
-	
+	public String getSpecies() { return species; }
 	public String getId() { return id; }
 	public void setId(String id) { this.id = id; }
 	public String getName() { return name; }
