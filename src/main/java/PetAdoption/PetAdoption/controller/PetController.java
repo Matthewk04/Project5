@@ -51,6 +51,12 @@ public class PetController {
 	}
 	
 	private void removeSelectedPet() {
+		Pet selected = view.getSelectedPet();
+		if (selected!=null) {
+			shelter.removePet(selected);
+		}else {
+			JOptionPane.showMessageDialog(null, "Please select a pet to remove");
+		}
 	}
 	
 	private void sortPets() {
