@@ -14,10 +14,10 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class PetController {
-	private Shelter shelter;
+	private Shelter<Pet> shelter;
 	private PetView view;
 	
-	public PetController(Shelter shelter, PetView view) {
+	public PetController(Shelter<Pet> shelter, PetView view) {
 		this.shelter = shelter;
 		this.view = view;
 		initController();
@@ -36,26 +36,33 @@ public class PetController {
 	}
 	
 	private void adoptSelectedPet() {
-		Pet selected = view.getSelectedPet();
-		if (selected != null) {
-			if (!selected.isAdopted()) {
-				selected.setAdopted(true);
-				JOptionPane.showMessageDialog(null, selected.getName() +" has been adopted!");
-				refreshPetList();
-			} else {
-				JOptionPane.showMessageDialog(null, selected.getName()+" is already adopted.");
-			}
-		}else {
-			JOptionPane.showMessageDialog(null,"Please select a pet to adopt.");
-		}
+		String petId = view.getSelectedPetId();
+	    if (petId != null) {
+	        Pet selected = shelter.getPetByID(petId);
+	        if (selected != null) {
+	            if (!selected.isAdopted()) {
+	                selected.setAdopted(true);
+	                JOptionPane.showMessageDialog(null, selected.getName() + " has been adopted!");
+	                refreshPetList();
+	            } else {
+	                JOptionPane.showMessageDialog(null, selected.getName() + " is already adopted.");
+	            }
+	        }
+	    } else {
+	        JOptionPane.showMessageDialog(null, "Please select a pet to adopt.");
+	    }
 	}
 	
 	private void removeSelectedPet() {
-		Pet selected = view.getSelectedPet();
-		if (selected!=null) {
-			shelter.removePet(selected);
-		}else {
-			JOptionPane.showMessageDialog(null, "Please select a pet to remove");
+		String petId = view.getSelectedPetId();
+		if(petId != null) {
+			Pet selected = shelter.getPetByID(petId);
+			if (selected!=null) {
+				shelter.removePet(selected);
+				refreshPetList();
+			}else {
+				JOptionPane.showMessageDialog(null, "Please select a pet to remove");
+			}
 		}
 	}
 	
@@ -74,7 +81,7 @@ public class PetController {
 				break;
 		}
 		if (comparator !=null) {
-			Collections.sort(shelter.getPets(),comparator);
+			shelter.sort(comparator);;
 			refreshPetList();
 		}
 	}

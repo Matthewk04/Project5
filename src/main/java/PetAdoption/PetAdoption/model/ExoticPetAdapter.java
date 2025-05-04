@@ -4,7 +4,7 @@ package PetAdoption.PetAdoption.model;
  * Adapter class to make ExoticAnimal compatible with the Pet class
  */
 public class ExoticPetAdapter extends Pet {
-	private final ExoticAnimal exotic;
+	private final String category;
 
 	/**
 	 * Constructs an adapter for exotic animals
@@ -12,7 +12,7 @@ public class ExoticPetAdapter extends Pet {
 	 */
 	public ExoticPetAdapter(ExoticAnimal exotic) {
 		super(exotic.getUniqueId(), exotic.getAnimalName(), exotic.getSubSpecies(), exotic.getYearsOld(), false);
-		this.exotic = exotic;
+		this.category = exotic.getCategory();
 	}
 
 	/**
@@ -25,12 +25,12 @@ public class ExoticPetAdapter extends Pet {
 	 */
 	public ExoticPetAdapter(String id, String name, String species, int age, boolean adopted) {
 		super(id, name, species, age, adopted);
-		this.exotic = new ExoticAnimal();
+		this.category = "Exotic";
 	}
 
 	@Override
 	public String getType() {
-		return exotic.getCategory();
+		return category;
 	}
 
 	@Override

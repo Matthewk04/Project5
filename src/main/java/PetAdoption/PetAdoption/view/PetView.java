@@ -25,7 +25,7 @@ public class PetView extends JFrame {
         setSize(800, 400);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
-        tableModel = new DefaultTableModel(new Object[]{"Name", "Species", "Age", "Adopted"}, 0);
+        tableModel = new DefaultTableModel(new Object[]{"Id", "Name", "Type", "Species", "Age", "Adopted"}, 0);
         petTable = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(petTable);
         add(scrollPane, BorderLayout.CENTER);
@@ -60,37 +60,22 @@ public class PetView extends JFrame {
 		return sortBox;
 	}
 	
-	public Pet getSelectedPet() {
+	public String getSelectedPetId() {
 		int row = petTable.getSelectedRow();
-		if (row >= 0) {
-			String id = tableModel.getValueAt(row, 0).toString();
-			String name = tableModel.getValueAt(row, 1).toString();
-			String species = tableModel.getValueAt(row, 2).toString();
-			int age = Integer.parseInt(tableModel.getValueAt(row, 3).toString());
-			boolean adopted = Boolean.parseBoolean(tableModel.getValueAt(row, 4).toString());
-
-			switch (species.toLowerCase()) {
-				case "dog":
-					return new Dog(id, name, species, age, adopted);
-				case "cat":
-					return new Cat(id, name, species, age, adopted);
-				case "rabbit":
-					return new Rabbit(id, name, species, age, adopted);
-				case "exotic":
-				case "exoticanimal":
-					return new ExoticPetAdapter(id, name, species, age, adopted);
-				default:
-					System.err.println("Unknown species: " + species);
-			}
+		if(row >= 0) {
+			return tableModel.getValueAt(row, 0).toString();
+		} else {
+			return null;
 		}
-		return null;
 	}
 	
 	public void updatePetTable(List<Pet> pets) {
 		tableModel.setRowCount(0);
 		for(Pet pet:pets) {
 			tableModel.addRow(new Object[] {
+					pet.getId(),
 					pet.getName(),
+					pet.getType(),
 					pet.getSpecies(),
 					pet.getAge(),
 					pet.isAdopted()

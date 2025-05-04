@@ -24,4 +24,12 @@ public class Shelter<T extends Pet> {
 	public List<T> getPets(){
 		return new ArrayList<>(pets);
 	}
+	public T getPetByID(String id) {
+		for (T pet:pets) {
+			if(pet.getId().equals(id)) {
+				return pet;
+			}
+		}
+		return null;
+	}
 }
