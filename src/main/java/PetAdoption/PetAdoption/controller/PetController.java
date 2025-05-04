@@ -60,6 +60,22 @@ public class PetController {
 	}
 	
 	private void sortPets() {
-		
+		String option = (String) view.getSortBox().getSelectedItem();
+		Comparator<Pet> comparator = null;
+		switch (option) {
+			case "Name":
+				comparator = new NameComparator();
+				break;
+			case "Age":
+				comparator = new AgeComparator();
+				break;
+			case "Species":
+				comparator = new SpeciesComparator();
+				break;
+		}
+		if (comparator !=null) {
+			Collections.sort(shelter.getAllPets(),comparator);
+			refreshPetList();
+		}
 	}
 }
