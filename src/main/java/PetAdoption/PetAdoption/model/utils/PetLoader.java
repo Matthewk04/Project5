@@ -1,4 +1,4 @@
-package PetAdoption.PetAdoption.utils;
+package PetAdoption.PetAdoption.model.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +24,6 @@ public class PetLoader {
 			Reader reader = new InputStreamReader(inputStream);
 			Gson gson = new GsonBuilder().registerTypeAdapter(Pet.class, new PetDeserializer()).create();
 			List<Pet> result = gson.fromJson(reader, new TypeToken<List<Pet>>() {}.getType());
-			System.out.println("loaded " + result.size() + " pets");
 			return result;
 		} catch (Exception e) {
 			System.err.println("Error in loading pets:");

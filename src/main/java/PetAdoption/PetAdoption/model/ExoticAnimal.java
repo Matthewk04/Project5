@@ -1,12 +1,25 @@
 package PetAdoption.PetAdoption.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ExoticAnimal {
+	@SerializedName("uniqueId")
 	private String uniqueId;
-	private String animalName;
-	private String category;
-	private String subSpecies;
-	private int yearsold;
 	
+	@SerializedName("animalName")
+	private String animalName;
+	
+	@SerializedName("category")
+	private String category;
+	
+	@SerializedName("subSpecies")
+	private String subSpecies;
+	
+	@SerializedName("yearsOld")
+	private int yearsOld;
+	
+	
+	//Getters and Setters
 	public String getUniqueId() { return uniqueId; }
 	public void setUniqueId(String uniqueId) { this.uniqueId = uniqueId; }
 	public String getAnimalName() { return animalName; }
@@ -15,7 +28,7 @@ public class ExoticAnimal {
 	public void setCategory(String category) { this.category = category; }
 	public String getSubSpecies() { return subSpecies; }
 	public void setSubSpecies(String subSpecies) { this.subSpecies = subSpecies; }
-	public int getYearsold() { return yearsold; }
-	public void setYearsold(int yearsold) { this.yearsold = yearsold; }
+	public int getYearsOld() { return yearsOld; }
+	public void setYearsOld(int yearsOld) { this.yearsOld = yearsOld; }
 	
 }

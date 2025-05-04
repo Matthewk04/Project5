@@ -4,7 +4,7 @@ import java.util.List;
 
 import PetAdoption.PetAdoption.model.Pet;
 import PetAdoption.PetAdoption.model.Shelter;
-import PetAdoption.PetAdoption.utils.PetLoader;
+import PetAdoption.PetAdoption.model.utils.PetLoader;
 
 
 public class App {
@@ -12,6 +12,7 @@ public class App {
         Shelter<Pet> shelter = new Shelter<>();
         
         PetLoader.loadPets("pets.json").forEach(shelter::addPet);
+        PetLoader.loadPets("exotic_animals.json").forEach(shelter::addPet);
         
         /**
          * testing shelter contents
