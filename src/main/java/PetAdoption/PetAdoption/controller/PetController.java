@@ -9,12 +9,14 @@ import PetAdoption.PetAdoption.model.utils.comparators.SpeciesComparator;
 import PetAdoption.PetAdoption.view.PetView;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Comparator;
 
+
+/**
+ * Connects GUI events to model updates
+ * Handles user actions and updates both UI and data
+ */
 public class PetController {
 	private Shelter<Pet> shelter;
 	private PetView view;
@@ -24,7 +26,9 @@ public class PetController {
 		this.view = view;
 		initController();
 	}
-	
+	/**
+	 * Initialize controller with event listeners
+	 */
 	private void initController() {
 		view.getAdoptButton().addActionListener(e->adoptSelectedPet());
 		view.getRemoveButton().addActionListener(e->removeSelectedPet());
@@ -34,6 +38,9 @@ public class PetController {
 		refreshPetList();
 	}
 	
+	/**
+	 * saves current pet list to a JSON file
+	 */
 	private void savePets() {
 		String timestamp = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyy_MM_dd HH_mm_ss"));
 		String filename = timestamp + "_pets.json";
@@ -45,6 +52,7 @@ public class PetController {
 			JOptionPane.showMessageDialog(null, "Save Failed" + ex.getMessage(), "error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
 	
 	private void refreshPetList() {
 		view.updatePetTable(shelter.getPets());

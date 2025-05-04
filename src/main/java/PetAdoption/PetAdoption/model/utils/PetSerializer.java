@@ -10,7 +10,13 @@ import com.google.gson.JsonSerializer;
 import PetAdoption.PetAdoption.model.ExoticPetAdapter;
 import PetAdoption.PetAdoption.model.Pet;
 
+/**
+ * Custom JSON serializer to handle regular and exotic pets
+ */
 public class PetSerializer implements JsonSerializer<Pet> {
+	/**
+	 * Serialize pets with type specific formatting
+	 */
 	@Override
 	public JsonElement serialize(Pet src, Type typeOfSrc, JsonSerializationContext context) {
 		if(src instanceof ExoticPetAdapter) {

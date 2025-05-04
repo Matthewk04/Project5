@@ -1,14 +1,11 @@
 package PetAdoption.PetAdoption;
 
-import java.util.List;
-
 import javax.swing.SwingUtilities;
 
 import PetAdoption.PetAdoption.controller.PetController;
 import PetAdoption.PetAdoption.model.Pet;
 import PetAdoption.PetAdoption.model.Shelter;
 import PetAdoption.PetAdoption.model.utils.PetLoader;
-import PetAdoption.PetAdoption.model.utils.comparators.*;
 import PetAdoption.PetAdoption.view.PetView;
 
 

@@ -1,16 +1,14 @@
 package PetAdoption.PetAdoption.view;
 
-import PetAdoption.PetAdoption.model.Cat;
-import PetAdoption.PetAdoption.model.Dog;
-import PetAdoption.PetAdoption.model.ExoticPetAdapter;
 import PetAdoption.PetAdoption.model.Pet;
-import PetAdoption.PetAdoption.model.Rabbit;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * GUI
+ */
 public class PetView extends JFrame {
 	private JTable petTable;
 	private DefaultTableModel tableModel;

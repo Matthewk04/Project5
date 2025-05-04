@@ -41,11 +41,4 @@ public abstract class Pet {
 	public boolean isAdopted() { return adopted; }
 	public void setAdopted(boolean adopted) { this.adopted = adopted; }
 	
-	
-	//used for testing that the json file is read correctly
-	@Override
-	public String toString() {
-		return String.format("Id: %s | Name: %s | Type: %s | Species: %s | Age: %d | Adopted: %b", id, name, getType(), species, age, adopted);
-	}
-	
 }

@@ -1,13 +1,9 @@
 package PetAdoption.PetAdoption.model.utils;
 
-import java.io.IOException;
-
-
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.FileReader;
 import java.io.Reader;
 
 import com.google.gson.Gson;
