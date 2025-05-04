@@ -24,7 +24,11 @@ public class PetController {
 	}
 	
 	private void initController() {
-		
+		view.getAdoptButton().addActionListener(e->adoptSelectedPet());
+		view.getRemoveButton().addActionListener(e->removeSelectedPet());
+		view.getSortBox().addActionListener(e->sortPets());
+		view.getRefreshButton().addActionListener(e->refreshPetList());
+		refreshPetList();
 	}
 	
 	private void refreshPetList() {
