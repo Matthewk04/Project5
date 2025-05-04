@@ -1,4 +1,4 @@
-package PetAdoption.PetAdoption.comparators;
+package PetAdoption.PetAdoption.utils.comparators;
 
 import java.util.Comparator;
 
