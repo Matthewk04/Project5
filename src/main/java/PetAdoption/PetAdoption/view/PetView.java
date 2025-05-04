@@ -17,6 +17,7 @@ public class PetView extends JFrame {
 	private JButton adoptButton;
 	private JButton removeButton;
 	private JButton refreshButton;
+	private JButton saveButton;
 	private JComboBox<String> sortBox;
 	
 	public PetView() {
@@ -33,12 +34,15 @@ public class PetView extends JFrame {
         adoptButton = new JButton("Adopt");
         removeButton = new JButton("Remove");
         refreshButton = new JButton("Refresh");
+        saveButton = new JButton("Save");
         sortBox = new JComboBox<>(new String[]{"Name", "Age", "Species"});
         buttonPanel.add(new JLabel("Sort by:"));
         buttonPanel.add(sortBox);
         buttonPanel.add(adoptButton);
         buttonPanel.add(removeButton);
         buttonPanel.add(refreshButton);
+        buttonPanel.add(saveButton);
+        
         add(buttonPanel, BorderLayout.SOUTH);
         setVisible(true);
 
@@ -54,6 +58,10 @@ public class PetView extends JFrame {
 	
 	public JButton getRefreshButton() {
 		return refreshButton;
+	}
+	
+	public JButton getSaveButton() {
+		return saveButton;
 	}
 	
 	public JComboBox<String> getSortBox(){

@@ -36,7 +36,7 @@ public class PetDeserializer implements JsonDeserializer<Pet>{
 		String species = jsonObject.get("species").getAsString();
 		int age = jsonObject.get("age").getAsInt();
 		boolean adopted = jsonObject.get("adopted").getAsBoolean();
-			
+		
 		switch(type) {
 		case "Dog":
 			return new Dog(String.valueOf(id), name, species, age, adopted);
