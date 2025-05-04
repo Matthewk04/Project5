@@ -1,6 +1,11 @@
 package PetAdoption.PetAdoption.view;
 
+import PetAdoption.PetAdoption.model.Cat;
+import PetAdoption.PetAdoption.model.Dog;
+import PetAdoption.PetAdoption.model.ExoticPetAdapter;
 import PetAdoption.PetAdoption.model.Pet;
+import PetAdoption.PetAdoption.model.Rabbit;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -57,12 +62,26 @@ public class PetView extends JFrame {
 	
 	public Pet getSelectedPet() {
 		int row = petTable.getSelectedRow();
-		if (row >=0) {
-			String name = (String) tableModel.getValueAt(row, 0);
-			String species = (String) tableModel.getValueAt(row,1);
-			int age = Integer.parseInt(tableModel.getValueAt(row,2).toString());
-			boolean adopted = Boolean.parseBoolean(tableModel.getValueAt(row, 3).toString());
-			return new Pet(name, species, age, adopted);
+		if (row >= 0) {
+			String id = tableModel.getValueAt(row, 0).toString();
+			String name = tableModel.getValueAt(row, 1).toString();
+			String species = tableModel.getValueAt(row, 2).toString();
+			int age = Integer.parseInt(tableModel.getValueAt(row, 3).toString());
+			boolean adopted = Boolean.parseBoolean(tableModel.getValueAt(row, 4).toString());
+
+			switch (species.toLowerCase()) {
+				case "dog":
+					return new Dog(id, name, species, age, adopted);
+				case "cat":
+					return new Cat(id, name, species, age, adopted);
+				case "rabbit":
+					return new Rabbit(id, name, species, age, adopted);
+				case "exotic":
+				case "exoticanimal":
+					return new ExoticPetAdapter(id, name, species, age, adopted);
+				default:
+					System.err.println("Unknown species: " + species);
+			}
 		}
 		return null;
 	}
