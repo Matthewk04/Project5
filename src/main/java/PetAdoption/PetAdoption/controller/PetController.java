@@ -36,11 +36,21 @@ public class PetController {
 	}
 	
 	private void adoptSelectedPet() {
-		
+		Pet selected = view.getSelectedPet();
+		if (selected != null) {
+			if (!selected.isAdopted()) {
+				selected.setAdopted(true);
+				JOptionPane.showMessageDialog(null, selected.getName() +" has been adopted!");
+				refreshPetList();
+			} else {
+				JOptionPane.showMessageDialog(null, selected.getName()+" is already adopted.");
+			}
+		}else {
+			JOptionPane.showMessageDialog(null,"Please select a pet to adopt.");
+		}
 	}
 	
 	private void removeSelectedPet() {
-		
 	}
 	
 	private void sortPets() {
