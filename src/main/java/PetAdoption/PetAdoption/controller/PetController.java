@@ -18,7 +18,9 @@ public class PetController {
 	private PetView view;
 	
 	public PetController(Shelter shelter, PetView view) {
-		
+		this.shelter = shelter;
+		this.view = view;
+		initController();
 	}
 	
 	private void initController() {
