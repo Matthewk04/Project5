@@ -40,19 +40,19 @@ public class PetView extends JFrame {
 	}
 
 	public JButton getAdoptButton() {
-	
+		return adoptButton;
 	}
 	
 	public JButton getRemoveButton() {
-		
+		return removeButton;
 	}
 	
 	public JButton getRefreshButton() {
-		
+		return refreshButton;
 	}
 	
 	public JComboBox<String> getSortBox(){
-		
+		return sortBox;
 	}
 	
 	public Pet getSelectedPet() {
