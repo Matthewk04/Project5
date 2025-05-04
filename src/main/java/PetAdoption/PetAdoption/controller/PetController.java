@@ -32,7 +32,7 @@ public class PetController {
 	}
 	
 	private void refreshPetList() {
-		view.updatePetTable(shelter.getAllPets());
+		view.updatePetTable(shelter.getPets());
 	}
 	
 	private void adoptSelectedPet() {
@@ -74,7 +74,7 @@ public class PetController {
 				break;
 		}
 		if (comparator !=null) {
-			Collections.sort(shelter.getAllPets(),comparator);
+			Collections.sort(shelter.getPets(),comparator);
 			refreshPetList();
 		}
 	}
