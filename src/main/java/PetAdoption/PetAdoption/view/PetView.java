@@ -68,6 +68,14 @@ public class PetView extends JFrame {
 	}
 	
 	public void updatePetTable(List<Pet> pets) {
-		
+		tableModel.setRowCount(0);
+		for(Pet pet:pets) {
+			tableModel.addRow(new Object[] {
+					pet.getName(),
+					pet.getSpecies(),
+					pet.getAge(),
+					pet.isAdopted()
+					});
+			}
+		}
 	}
-}
