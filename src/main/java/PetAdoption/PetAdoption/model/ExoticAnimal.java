@@ -2,6 +2,10 @@ package PetAdoption.PetAdoption.model;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Exotic animals with different field names than standard pets
+ * used with GSON annotations for JSON parsing
+ */
 public class ExoticAnimal {
 	@SerializedName("uniqueId")
 	private String uniqueId;

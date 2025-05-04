@@ -11,7 +11,16 @@ import PetAdoption.PetAdoption.model.ExoticPetAdapter;
 import PetAdoption.PetAdoption.model.Pet;
 import PetAdoption.PetAdoption.model.Rabbit;
 
+/**
+ * Custom JSON deserializer  that handles both standard pets and exotic animals
+ * https://medium.com/@alexandre.therrien3/personalized-serializer-and-deserializer-using-java-gson-library-c079de3974d4
+ * implements special logic for converting JSON data to appropriate java objects
+ */
 public class PetDeserializer implements JsonDeserializer<Pet>{
+	/**
+	 * Converts JSON element to appropriate Pet subclass
+	 * @throws JsonParseException if unknown pet type
+	 */
 	@Override
 	public Pet deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 		JsonObject jsonObject = json.getAsJsonObject();

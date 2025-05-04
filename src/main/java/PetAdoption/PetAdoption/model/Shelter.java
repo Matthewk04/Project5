@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+
+/**
+ * Generic class representing an animal shelter
+ * @param <T> Type of pet the shelter contains
+ */
 public class Shelter<T extends Pet> {
 	private List<T> pets = new ArrayList<>();
 	
