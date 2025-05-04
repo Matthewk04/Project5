@@ -56,7 +56,15 @@ public class PetView extends JFrame {
 	}
 	
 	public Pet getSelectedPet() {
-		
+		int row = petTable.getSelectedRow();
+		if (row >=0) {
+			String name = (String) tableModel.getValueAt(row, 0);
+			String species = (String) tableModel.getValueAt(row,1);
+			int age = Integer.parseInt(table.Model.getValueAt(row,2).toString());
+			boolean adopted = Boolean.parseBoolean(tableModel.getValueAt(row, 3).toString());
+			return new Pet(name, species, age, adopted);
+		}
+		return null;
 	}
 	
 	public void updatePetTable(List<Pet> pets) {
