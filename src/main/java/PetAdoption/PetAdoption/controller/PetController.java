@@ -32,7 +32,7 @@ public class PetController {
 	}
 	
 	private void refreshPetList() {
-		
+		view.updatePetTable(shelter.getAllPets());
 	}
 	
 	private void adoptSelectedPet() {
