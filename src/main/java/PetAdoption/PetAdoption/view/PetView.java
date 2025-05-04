@@ -15,6 +15,27 @@ public class PetView extends JFrame {
 	private JComboBox<String> sortBox;
 	
 	public PetView() {
+		setTitle("Pet Adoption Center");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 400);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+        tableModel = new DefaultTableModel(new Object[]{"Name", "Species", "Age", "Adopted"}, 0);
+        petTable = new JTable(tableModel);
+        JScrollPane scrollPane = new JScrollPane(petTable);
+        add(scrollPane, BorderLayout.CENTER);
+        JPanel buttonPanel = new JPanel();
+        adoptButton = new JButton("Adopt");
+        removeButton = new JButton("Remove");
+        refreshButton = new JButton("Refresh");
+        sortBox = new JComboBox<>(new String[]{"Name", "Age", "Species"});
+        buttonPanel.add(new JLabel("Sort by:"));
+        buttonPanel.add(sortBox);
+        buttonPanel.add(adoptButton);
+        buttonPanel.add(removeButton);
+        buttonPanel.add(refreshButton);
+        add(buttonPanel, BorderLayout.SOUTH);
+        setVisible(true);
 
 	}
 
@@ -41,3 +62,4 @@ public class PetView extends JFrame {
 	public void updatePetTable(List<Pet> pets) {
 		
 	}
+}
